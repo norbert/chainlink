@@ -14,7 +14,9 @@ when 'sqlite3'
 when 'mysql2'
   ActiveRecord::Base.establish_connection(adapter: 'mysql2', database: 'chainlink_test')
 when 'postgresql'
-  ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'chainlink_test')
+  configuration = { adapter: 'postgresql', database: 'chainlink_test'}
+  configuration[:username] = 'postgres' if ENV['CI'] == 'true'
+  ActiveRecord::Base.establish_connection(configuration)
 end
 
 ActiveRecord::Schema.define(:version => 1) do
