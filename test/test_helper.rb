@@ -12,9 +12,9 @@ case ENV['ADAPTER'] || 'sqlite3'
 when 'sqlite3'
   ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: ':memory:')
 when 'mysql2'
-  ActiveRecord::Base.establish_connection(adapter: 'mysql2', database: 'forward_path_test')
+  ActiveRecord::Base.establish_connection(adapter: 'mysql2', database: 'chainlink_test')
 when 'postgresql'
-  ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'forward_path_test')
+  ActiveRecord::Base.establish_connection(adapter: 'postgresql', database: 'chainlink_test')
 end
 
 ActiveRecord::Schema.define(:version => 1) do
